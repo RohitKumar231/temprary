@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Services</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<style>
+		*{  
+			margin: 0;  
+			padding: 0;  
+			box-sizing: border-box;  
+			font-family: 'Poppins', sans-serif;  
+		  }  
+		body{  
+			justify-content: center;   
+			height: 100vh;  
+			align-items: center;  
+			height: 100vh; 
+			background: linear-gradient(0deg,#FDFEFE 0%,  50%, #D0ECE7 100%)  no-repeat no-repeat; 
+		}
+
+
+
+		/* Style the top navigation bar */
+		.navbar {
+			overflow: hidden;
+			background-color: #333;
+		  }
+		  
+		  /* Style the topnav links */
+		  .navbar a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 20px;
+			text-transform: uppercase;
+			font-family: Georgia, sans-serif;
+		  }
+		  
+		  /* Change color on hover */
+		  .navbar a:hover {
+			background-color: #ddd;
+			color: black;
+		  }
+		  
+		  .container {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 10px;
+			margin: 10px;
+		} 
+
+		h1{
+			color: #1abc9c;
+			font-family: Georgia, sans-serif;
+			font-style: italic;
+			font-size: 30px;
+			text-shadow: 2px 2px 4px rgb(196, 245, 192);
+			}
+		.card{  
+			width: 250px;  
+			height: 300px;  
+			position: relative;  
+			cursor: pointer; 
+			margin: 40px; 
+		  }  
+		  .card .content{  
+			width: 100%;  
+			height: 100%;  
+			background: rgba(255, 255, 255, 0.089);  
+			backdrop-filter: blur(20px);  
+			border: 1px solid white;  
+			color: white;  
+			display: flex;  
+			justify-content: center;  
+			align-items: center;  
+			flex-direction: column;  
+			box-shadow: 0 0 30px rgba(0, 0, 0, 0.055);  
+			transition: all .4s;  
+		  }  
+		  .card .content p{  
+			font-size: 0.8em;  
+			padding: 15px;  
+			text-align: center;  
+		  }  
+
+		  .card .content h2{  
+			color: #0B5345; 
+			font-family: 'Helvetica Neue', sans-serif; 
+			font-size:25px; 
+		   
+			line-height: 50px; 
+			letter-spacing: 1px; 
+			padding: 0 0 40px; 
+			border-bottom: double #555;   
+		  }  
+		  .card:hover .content{  
+			color: rgb(36, 36, 36);  
+		  }  
+		  .card::before,  
+		  .card::after{  
+			content: '';  
+			position: absolute;  
+			width: 100%;  
+			height: 50%;  
+			background: #1abc9c;  
+			z-index: -20;  
+			transition: all .4s;  
+		  }  
+		  .card::before{  
+			top: 0;  
+			right: 0;  
+		  }  
+		  .card::after{  
+			bottom: 0;  
+			left: 0;  
+			background: #0E6655;  
+		  }  
+		  .card:hover::before{  
+			width: 50px;  
+			height: 50px;  
+			transform: translate(20px, -20px);  
+			border-radius: 50%;  
+		  }  
+		  .card:hover::after{  
+			width: 100px;  
+			height: 100px;  
+			transform: translate(-20px, 20px);  
+			border-radius: 50%;  
+		  }  
+
+
+		  .button {
+			border: none;
+			outline: 0;
+			padding: 10px;
+			color: white;
+			background-color: #000;
+			text-align: center;
+			cursor: pointer;
+			width: 200px;
+			margin:20px;
+		  }
+		  
+		  .button:hover {
+			background-color: #555;
+		  }
+		</style>
+    </head>
+    <body>
+        <div class="navbar">
+                <a href='/main/'>Home</a>
+<!--                <a href="#appointments">Appointments</a>-->
+                <a href="/contact/">Contact</a>
+                <a href="/aboutus/">About</a>
+        </div>
+
+       
+		<div class="container">
+			<h1>{{service}}</h1>
+			<div class="rowslider">
+				{% for data in rows %}
+				<div class="card">
+					<div class="content">
+					 <form action="/booking">
+						 <input type="hidden" name="service" value= {{service}}>
+						 <input type="hidden" name="name" value={{data.name}}>
+						 <input type="hidden" name="email" value={{data.Email}}>
+						 <input type="hidden" name="userid" value={{userid}}>
+						<h2>{{data.name}}</h2>
+						<h4>{{data.contact}}</h4> 
+						<h4>{{data.Email}}</h4>
+						<h4>{{data.Address}}</h4>
+						<h4>{{Charges}}</h4>
+						<button class="button">Appointment</button>
+					</form>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+                $('.rowslider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll:4,
+                responsive: [
+                    {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                    },
+                    {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                    },
+                    {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+                });
+        </script>
+    </body>
+</html>

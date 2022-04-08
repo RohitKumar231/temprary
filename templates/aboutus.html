@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+
+    
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+a{
+    text-decoration: None;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Anton', sans-serif;
+}
+
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Georgia, sans-serif;
+  }
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.raw {
+  align-items: center;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 #1abc9c;
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+  
+}
+
+.container {
+  padding: 0 16px;
+  align-items: center;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+
+                <a href="/main/">Home</a>
+                <a href="/contact/">Contact</a>
+</div>
+        
+
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>We are doing this project as a task given by Codeplanet Technologies</p>
+  <p>This is django based website for service managemnet</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+ <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Chinmay Gaikawad</h2>
+        <p class="title">Developer</p>
+        <p>9422820783</p>
+        <p>chinmaygaikawad08@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2>Rohit</h2>
+            <p class="title">Developer</p>
+            <p>7688888031</p>
+            <p>mailbkrohit@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2>Krati Gupta</h2>
+            <p class="title">Developer</p>
+            <p>8171890676</p>
+            <p>radhikaguptakrati@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="container">
+            <h2>Manoj Kumar Meena</h2>
+            <p class="title">Developer</p>
+            <p>9119225667</p>
+            <p>manoj9461584861@gmail.com</p>
+          </div>
+        </div>
+      </div>
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Abhishek Rathore</h2>
+        <p class="title">Developer</p>
+        <p>8769829611</p>
+        <p>abhishekrathore059@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
