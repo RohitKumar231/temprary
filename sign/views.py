@@ -1,4 +1,4 @@
-
+from django.db import connection
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Users
@@ -27,12 +27,17 @@ def signup(request):
 
 
 def signin(request):
-    email = request.POST.get("email")
     psw = request.POST.get("psw")
-    if Users.objects.filter(Email=email,password=psw):
-        Id = Users.objects.filter(Email=email,password=psw)[0].id
-        messages.success(request,'Log In Success')          ##########
-        return render(request,'index.html',{'user_id':Id})               ###########
+    email = request.POST.get("email")
+    cursor = connection.cursor()
+    query1 = "select * from sign_users where Email='" + email + "'"
+    cursor.execute(query1)
+    data = cursor.fetchone()
+    query2 = "select * from sign_appointment where user_id='" + str(data[0]) + "'"
+    cursor.execute(query2)
+    data1 = cursor.fetchone()
+    if data[5]==psw:
+        data= {'user_id':data[0],'Name':data[1],'Contact_number':data[2],'Address':data[3],'Email':data[4],'Password':data[5],'appointment_id':data1[0],'timedate':data1[1],'worker_id':data[4]}
+        return render(request,'profile.html',data)
     else:
-        messages.warning(request,'Email/Password is Incorrect')
-        return render(request,'login_signup.html')
+        return redirect('signup_login')

@@ -6,8 +6,6 @@ def booking(request):
     service = request.GET.get('service')
     email = request.GET.get('email')
     userid = request.GET.get('userid')
-
-
     return render(request, 'booking_confirmation.html',{'workername':workername, 'service':service, 'email':email,'userid':userid})
 
 

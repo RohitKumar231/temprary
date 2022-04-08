@@ -17,10 +17,10 @@ def update_cancle(request):
     return render(request, 'Update_cancle.html',data)
 def update(request):
     appointment_id = request.GET['appointment_id']
-    time = request.GET['timedate']
+    datetime = request.GET.get['datetime']
     cursor = connection.cursor()
     query = "update sign_appointment set Appointment_date=%s where id='" + appointment_id + "'"
-    value = (str(time))
+    value = (datetime)
     cursor.execute(query, value)
     return render(request,"end_page.html",{'message':"Your appointment has been updated"})
 def cancle(request):
@@ -31,4 +31,6 @@ def cancle(request):
     return render(request, "end_page.html",{'message':"Your appointment has been Canceled"})
 
 def new_appointment(request):
-    return render(request, "index.html")
+    user_id=request.GET['user_id']
+    data={'user_id':user_id}
+    return render(request, "index.html",data)
