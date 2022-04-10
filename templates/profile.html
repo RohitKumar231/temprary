@@ -21,7 +21,28 @@
 			align-items: center;
 			height: 100vh;
 			background: linear-gradient(0deg,#FDFEFE 0%,  50%, #D0ECE7 100%)  no-repeat no-repeat;
+
 		}
+
+        h4{
+            text-decoration: None;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-family: 'Anton', sans-serif;
+            text-align: center;
+
+        }
+
+        h3{
+            text-decoration: None;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: 'Anton', sans-serif;
+
+        }
+
+
+
 
 
 
@@ -63,6 +84,7 @@
 			font-style: italic;
 			font-size: 30px;
 			text-shadow: 2px 2px 4px rgb(196, 245, 192);
+			text-transform: uppercase;
 			}
 		.card{
 			width: 250px;
@@ -95,8 +117,8 @@
 			color: #0B5345;
 			font-family: 'Helvetica Neue', sans-serif;
 			font-size:25px;
-
-			line-height: 50px;
+            text-align: center;
+			line-height: 25px;
 			letter-spacing: 1px;
 			padding: 0 0 40px;
 			border-bottom: double #555;
@@ -162,35 +184,39 @@
                 <a href="/aboutus/">About</a>
         </div>
 
-
 		<div class="container">
 			<center><h1>{{Name}}</h1>
-                <h4>User Id: {{user_id}}</h4>
+                <h4>user Id: {{user_id}}</h4>
                 <h4>Contact:{{Contact_number}}</h4>
                 <h4>Email: {{Email}}</h4>
                 <h4>Address: {{Address}}</h4>
                 <form action="/new_appointment/">
                     <input type="hidden" name="user_id" value="{{user_id}}">
-                    <button type="submit">New appointment</button>
+                    <button class="button" type="submit">New appointment</button>
                 </form>
+
             </h5></center>
-            <h2>Upcoming Appointments----></h2>
+            <h1>Upcoming Appointment----></h1>
 			<div class="rowslider">
+
 				<div class="card">
 					<div class="content">
 					 <form action="/update_cancle/">
 						 <input type="hidden" name="appointment_id" value= {{appointment_id}}>
 						 <input type="hidden" name="name" value={{Name}}>
-                         <h2>{{appointment_id}}</h2>
-						<h4>{{timedate}}</h4>
-						<h4>{{Address}}</h4>
-						<h4>{{worker_id}}</h4>
-						<button class="button" type="submit">Update/Cancle</button>
+
+                         <h2>ID:{{appointment_id}}</h2>
+						<h4>Time:{{timedate}}</h4>
+						<h4>At:{{Address}}</h4>
+						<h4>Worker:{{worker_id}}</h4>
+
+						<button class="button" type="submit">Update/Cancel</button>
 					</form>
 					</div>
 				</div>
+
 			</div>
-            <h2>Completed Appointments------></h2>
+            <h1>Recent Completed Appointment------></h1>
             <div class="container">
                 <div class="rowslider">
 
@@ -199,10 +225,10 @@
                          <form action="completed">
                              <input type="hidden" name="appointment_id" value={{appointment_id}}>
                              <input type="hidden" name="name" value={{Name}}>
-                            <h2>{{appointment_id}}</h2>
-                            <h4>{{timedate}}</h4>
-                             <h4>{{Address}}</h4>
-                            <h4>{{worker_id}}</h4>
+                            <h2>ID;{{appointment_id}}</h2>
+                            <h4>Time:{{timedate}}</h4>
+                             <h4>At:{{Address}}</h4>
+                            <h4>Worker:{{worker_id}}</h4>
                             <button class="button">Rate us</button>
                         </form>
                         </div>

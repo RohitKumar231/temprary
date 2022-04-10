@@ -8,9 +8,13 @@ def contact(request):
 
 
 def contacts(request):
-    firstname = request.GET.get("firstname")
-    lastname = request.GET.get("lastname")
-    subject = request.GET.get("subject")
-    users = contactus(firstname=firstname, lastname=lastname, subject=subject)
-    users.save()
-    return render(request, 'contact.html')
+    try:
+        firstname = request.GET.get("firstname")
+        lastname = request.GET.get("lastname")
+        subject = request.GET.get("subject")
+        users = contactus(firstname=firstname, lastname=lastname, subject=subject)
+        users.save()
+        return render(request, 'contact.html')
+    except:
+        return render(request, 'error.html')
+

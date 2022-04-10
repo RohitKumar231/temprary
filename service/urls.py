@@ -21,12 +21,12 @@ urlpatterns = [
     path('', include('home.urls')),
     path('sign/', include('sign.urls')),
     path('register/', include('register.urls')),
+    path('prosign/', include('prosign.urls')),
     path('aboutus/', include('aboutus.urls')),
     path('contact/', include('contact.urls')),
     path('service/', include('services.urls')),
     path('booking/', include('booking.urls')),
     path('appointments/', include('appointments.urls')),
+    path('appointment_page/', include('appointments.urls')),
     path('main/', include('main.urls')),
-
-
 ]
